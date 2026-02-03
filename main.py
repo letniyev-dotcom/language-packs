@@ -22,7 +22,7 @@ from aiogram.types.error_event import ErrorEvent
 # ==========================================
 # КОНФИГУРАЦИЯ
 # ==========================================
-TOKEN = "8365296454:AAFEZahhInOwtRv6RoHcRCX5ioSm-5G3G9o"
+TOKEN = "8587570193:AAGvKWg18N_dxvYOHRwdn9b3k5Ea226Qpy0"
 # Главный админ (Босс) - только он может добавлять/удалять других админов
 MAIN_ADMIN_ID = 8274761521 
 DB_FILE = "languages_db.json"
@@ -122,7 +122,10 @@ BOT_STRINGS = {
         "cat_view_count": "строк в этой категории: {0}",
         "enter_name": "введите название:",
         "create_lang_unavailable": "пока недоступно...",
-        "draft_sorting": "sorting"
+        "draft_sorting": "sorting",
+        "cat_exists": "Категория уже существует",
+        "cat_name_empty": "Имя категории не может быть пустым",
+        "cat_key_invalid": "Неверный ключ категории"
     },
     "en": {
         "start_text": "Select bot language:", 
@@ -201,7 +204,10 @@ BOT_STRINGS = {
         "cat_view_count": "strings in this category: {0}",
         "enter_name": "enter name:",
         "create_lang_unavailable": "currently unavailable...",
-        "draft_sorting": "sorting"
+        "draft_sorting": "sorting",
+        "cat_exists": "Category already exists",
+        "cat_name_empty": "Category name cannot be empty",
+        "cat_key_invalid": "Invalid category key"
     }
 }
 
@@ -402,7 +408,8 @@ class DB:
         try:
             with open(self.filename, 'w', encoding='utf-8') as f:
                 # При сохранении ключи словаря users станут строками, это норм для JSON
-                json.dump(self.data, f, ensure_ascii=False, indent=2)
+                # Убрали indent=2 для ускорения сохранения
+                json.dump(self.data, f, ensure_ascii=False)
         except Exception as e:
             logger.error(f"Error saving DB: {e}")
 
@@ -531,6 +538,8 @@ class DB:
         if cat_key not in categories:
             categories[cat_key] = {"name": name, "keys": []}
             self.update_translation_categories(categories)
+            return True
+        return False
 
     def remove_category(self, cat_key):
         categories = self.get_translation_categories()
@@ -1060,11 +1069,16 @@ async def generate_admin_invite(call: types.CallbackQuery):
 # УПРАВЛЕНИЕ КАТЕГОРИЯМИ
 # ------------------------------------
 
-@router.callback_query(F.data == "adm_categories")
-async def adm_categories_menu(call: types.CallbackQuery, state: FSMContext):
-    uid = call.from_user.id
+async def adm_categories_menu(call_or_message: types.CallbackQuery | types.Message, state: FSMContext = None):
+    if isinstance(call_or_message, types.CallbackQuery):
+        uid = call_or_message.from_user.id
+        msg = call_or_message.message
+    else:
+        uid = call_or_message.from_user.id
+        msg = call_or_message
+
     if uid != MAIN_ADMIN_ID:
-        await call.answer(TR("access_denied", uid), show_alert=True)
+        await call_or_message.answer(TR("access_denied", uid), show_alert=True)
         return
 
     text = f"{EMOJI_CATEGORY} {TR('manage_categories_title', uid)}"
@@ -1076,7 +1090,14 @@ async def adm_categories_menu(call: types.CallbackQuery, state: FSMContext):
     kb.button(text=f"⬅️ {TR('back', uid)}", callback_data="admin_back_main")
     kb.adjust(1)
 
-    await call.message.edit_text(text, reply_markup=kb.as_markup())
+    if isinstance(call_or_message, types.CallbackQuery):
+        await msg.edit_text(text, reply_markup=kb.as_markup())
+    else:
+        await msg.answer(text, reply_markup=kb.as_markup())
+
+@router.callback_query(F.data == "adm_categories")
+async def adm_categories_handler(call: types.CallbackQuery, state: FSMContext):
+    await adm_categories_menu(call, state)
 
 @router.callback_query(F.data.startswith("view_cat_"))
 async def view_category_handler(call: types.CallbackQuery):
@@ -1106,7 +1127,7 @@ async def delete_category_handler(call: types.CallbackQuery):
     db.remove_category(cat_key)
     global TRANSLATION_CATEGORIES
     TRANSLATION_CATEGORIES = db.get_translation_categories()
-    await adm_categories_menu(call, None)
+    await adm_categories_menu(call)
 
 @router.callback_query(F.data.startswith("edit_cat_"))
 async def edit_category_start(call: types.CallbackQuery, state: FSMContext):
@@ -1128,12 +1149,16 @@ async def edit_category_process(message: types.Message, state: FSMContext):
     new_name = message.text.strip()
     await message.delete()
 
+    if not new_name:
+        await bot.edit_message_text(TR("cat_name_empty", uid), chat_id=message.chat.id, message_id=msg_id)
+        return
+
     db.update_category_name(cat_key, new_name)
     global TRANSLATION_CATEGORIES
     TRANSLATION_CATEGORIES = db.get_translation_categories()
 
     await state.clear()
-    await adm_categories_menu(message, state)
+    await adm_categories_menu(message)
 
 @router.callback_query(F.data == "add_new_cat")
 async def add_category_start(call: types.CallbackQuery, state: FSMContext):
@@ -1153,13 +1178,26 @@ async def add_category_process(message: types.Message, state: FSMContext):
     name = message.text.strip()
     await message.delete()
 
-    cat_key = name.lower().replace(" ", "_")  # Simple key generation
-    db.add_category(cat_key, name)
+    if not name:
+        await bot.edit_message_text(TR("cat_name_empty", uid), chat_id=message.chat.id, message_id=msg_id)
+        return
+
+    cat_key = name.lower().replace(" ", "_")
+    if not cat_key:
+        await bot.edit_message_text(TR("cat_key_invalid", uid), chat_id=message.chat.id, message_id=msg_id)
+        return
+
+    added = db.add_category(cat_key, name)
+    if not added:
+        await bot.edit_message_text(TR("cat_exists", uid), chat_id=message.chat.id, message_id=msg_id)
+        await state.clear()
+        return
+
     global TRANSLATION_CATEGORIES
     TRANSLATION_CATEGORIES = db.get_translation_categories()
 
     await state.clear()
-    await adm_categories_menu(message, state)
+    await adm_categories_menu(message)
 
 # ------------------------------------
 # УПРАВЛЕНИЕ СТРОКАМИ
@@ -1310,7 +1348,13 @@ async def view_all_strings_handler(call: types.CallbackQuery, state: FSMContext)
     await show_strings_page(call, 0)
 
 async def show_strings_page(call_or_message, page):
-    uid = call_or_message.from_user.id if isinstance(call_or_message, types.CallbackQuery) else call_or_message.from_user.id
+    if isinstance(call_or_message, types.CallbackQuery):
+        uid = call_or_message.from_user.id
+        msg = call_or_message.message
+    else:
+        uid = call_or_message.from_user.id
+        msg = call_or_message
+
     all_keys = sorted(list(BASE_TEMPLATE.keys()))
     per_page = 8
     total_pages = (len(all_keys) + per_page - 1) // per_page
@@ -1339,9 +1383,9 @@ async def show_strings_page(call_or_message, page):
     kb.button(text=f"⬅️ {TR('back', uid)}", callback_data="adm_strings")
 
     if isinstance(call_or_message, types.CallbackQuery):
-        await call_or_message.message.edit_text(text, reply_markup=kb.as_markup())
+        await msg.edit_text(text, reply_markup=kb.as_markup())
     else:
-        await call_or_message.edit_text(text, reply_markup=kb.as_markup())
+        await msg.answer(text, reply_markup=kb.as_markup())
 
 @router.callback_query(F.data.startswith("strings_page_"))
 async def strings_page_handler(call: types.CallbackQuery):
@@ -1358,7 +1402,7 @@ async def view_string_handler(call: types.CallbackQuery, state: FSMContext):
     value = BASE_TEMPLATE.get(key, "???")
     cat_name = find_category_for_key(key)
 
-    text = f"<blockquote><b>код:</b> {key}\n<b>перевод:</b> {value}\n<b>категория:</b> {cat_name}</blockquote>"
+    text = f"<b>код: {key}</b>\n<blockquote>перевод: {value}\nкатегория: {cat_name}</blockquote>"
 
     kb = InlineKeyboardBuilder()
     kb.button(text=f"🗑 {TR('btn_delete', uid)}", callback_data=f"delete_string_{key}_{page}")
