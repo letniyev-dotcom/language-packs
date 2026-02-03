@@ -22,7 +22,7 @@ from aiogram.types.error_event import ErrorEvent
 # ==========================================
 # КОНФИГУРАЦИЯ
 # ==========================================
-TOKEN = "8587570193:AAGvKWg18N_dxvYOHRwdn9b3k5Ea226Qpy0"
+TOKEN = "8365296454:AAFEZahhInOwtRv6RoHcRCX5ioSm-5G3G9o"
 # Главный админ (Босс) - только он может добавлять/удалять других админов
 MAIN_ADMIN_ID = 8274761521 
 DB_FILE = "languages_db.json"
