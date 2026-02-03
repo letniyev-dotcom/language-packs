@@ -52,13 +52,13 @@ BOT_STRINGS = {
         "btn_custom": "кастомные",
         "btn_global": "глобальные",
         "btn_manual": "инструкция",
-        "btn_manage": "⚙️ Управление",
+        "btn_manage": "⚙️ управление",
         "cat_choice": "{0} выберите {1} язык",
         "cat_type_custom": "кастомный",
         "cat_type_global": "глобальный",
         "back": "назад",
         "install": "установить",
-        "delete_admin": "🗑 Удалить (Админ)",
+        "delete_admin": "🗑 удалить (админ)",
         "lang_view_title": "<b>название:</b> {0}",
         "lang_view_stats": "<b>переведено строк:</b> <code>{0}/{1}</code>",
         "lang_view_date": "<b>последнее обновление:</b> <code>{0}</code>",
@@ -72,9 +72,10 @@ BOT_STRINGS = {
         "manage_langs_title": "<b>управление языками</b>",
         "btn_create_new": "создать новый",
         "btn_add_string": "добавить строку",
+        "btn_drafts": "черновики",
         "admins_list_title": "<b>Список админов ({0}):</b>\nНажмите на админа для управления.",
         "admin_manage_user_title": "<b>Управление админом:</b>\nID: <code>{0}</code>",
-        "btn_delete_admin_user": "🗑 Удалить права админа",
+        "btn_delete_admin_user": "🗑 удалить права админа",
         "btn_gen_invite": "создать приглашение",
         "invite_text": "<b>Одноразовая ссылка для нового админа:</b>\n<code>{0}</code>\n\nПерешлите её. После перехода он станет админом.",
         "lang_deleted": "Язык удален.",
@@ -90,57 +91,74 @@ BOT_STRINGS = {
         "wiz_done": "язык добавлен",
         "trans_panel": "<b>панель переводчика</b>\n<blockquote><b>язык:</b> {0}\nпереведено {1} из {2}</blockquote>",
         "trans_publish": "✅ опубликовать",
+        "trans_draft": "в черновики",
         "trans_next": "далее",
         "trans_apply": "применить",
-        "lang_changed": "Язык изменен на Русский 🇷🇺"
+        "lang_changed": "Язык изменен на Русский 🇷🇺",
+        "original_label": "Оригинал",
+        "trans_label": "Перевод",
+        "drafts_title": "<b>черновики</b>",
+        "drafts_empty": "нет черновиков",
+        "draft_view_title": "<b>название:</b> {0}",
+        "btn_edit": "редактировать",
+        "lang_updated": "язык обновлен"
     },
     "en": {
         "start_text": "Select bot language:", 
         "main_menu_text": "{0} <b>Recent Chats Fork</b> Language Catalog\n\nUse the buttons below to select a language or read the manual",
-        "btn_custom": "Custom",
-        "btn_global": "Global",
-        "btn_manual": "Manual",
-        "btn_manage": "⚙️ Management",
+        "btn_custom": "custom",
+        "btn_global": "global",
+        "btn_manual": "manual",
+        "btn_manage": "⚙️ management",
         "cat_choice": "{0} select {1} language",
         "cat_type_custom": "custom",
         "cat_type_global": "global",
-        "back": "Back",
-        "install": "Install",
-        "delete_admin": "🗑 Delete (Admin)",
-        "lang_view_title": "<b>Name:</b> {0}",
-        "lang_view_stats": "<b>Translated lines:</b> <code>{0}/{1}</code>",
-        "lang_view_date": "<b>Last update:</b> <code>{0}</code>",
-        "lang_view_desc": "<b>Description:</b> <code>{0}</code>",
-        "lang_view_footer": "Press <b>Install</b> below and copy the file content",
+        "back": "back",
+        "install": "install",
+        "delete_admin": "🗑 delete (admin)",
+        "lang_view_title": "<b>name:</b> {0}",
+        "lang_view_stats": "<b>translated lines:</b> <code>{0}/{1}</code>",
+        "lang_view_date": "<b>last update:</b> <code>{0}</code>",
+        "lang_view_desc": "<b>description:</b> <code>{0}</code>",
+        "lang_view_footer": "Press <b>install</b> below and copy the file content",
         "file_sent": "File sent below {0}",
-        "to_menu": "Main Menu",
-        "admin_panel_title": "<b>Admin Panel</b>\n\nManage languages, add new ones, or manage admins here.",
-        "btn_manage_langs": "Manage Languages",
-        "btn_admins": "Admins",
-        "manage_langs_title": "<b>Manage Languages</b>",
-        "btn_create_new": "Create New",
-        "btn_add_string": "Add String",
+        "to_menu": "main menu",
+        "admin_panel_title": "<b>admin panel</b>\n\nManage languages, add new ones, or manage admins here.",
+        "btn_manage_langs": "manage languages",
+        "btn_admins": "admins",
+        "manage_langs_title": "<b>manage languages</b>",
+        "btn_create_new": "create new",
+        "btn_add_string": "add string",
+        "btn_drafts": "drafts",
         "admins_list_title": "<b>Admin List ({0}):</b>\nClick on an admin to manage.",
         "admin_manage_user_title": "<b>Manage Admin:</b>\nID: <code>{0}</code>",
-        "btn_delete_admin_user": "🗑 Remove Admin Rights",
-        "btn_gen_invite": "Create Invite",
+        "btn_delete_admin_user": "🗑 remove admin rights",
+        "btn_gen_invite": "create invite",
         "invite_text": "<b>One-time link for new admin:</b>\n<code>{0}</code>\n\nForward this. They will become admin upon clicking.",
         "lang_deleted": "Language deleted.",
         "admin_removed": "Admin {0} removed.",
         "access_denied": "Access denied.",
-        "wiz_step1": "<b>Select Category:</b>\n1 of 4",
-        "wiz_step2": "<b>Enter Name:</b>\n2 of 4",
-        "wiz_step3": "<b>Enter Description:</b>\n3 of 4",
+        "wiz_step1": "<b>select category:</b>\n1 of 4",
+        "wiz_step2": "<b>enter name:</b>\n2 of 4",
+        "wiz_step3": "<b>enter description:</b>\n3 of 4",
         "wiz_step4": "Create from scratch or upload existing?",
-        "wiz_btn_scratch": "Create New",
-        "wiz_btn_upload": "Upload File",
+        "wiz_btn_scratch": "create new",
+        "wiz_btn_upload": "upload file",
         "wiz_upload_ask": "Send .json or .lang file",
         "wiz_done": "Language added",
-        "trans_panel": "<b>Translator Panel</b>\n<blockquote><b>Lang:</b> {0}\nProgress {1} of {2}</blockquote>",
-        "trans_publish": "✅ Publish",
-        "trans_next": "Next",
-        "trans_apply": "Apply",
-        "lang_changed": "Language changed to English 🇺🇸"
+        "trans_panel": "<b>translator panel</b>\n<blockquote><b>lang:</b> {0}\nprogress {1} of {2}</blockquote>",
+        "trans_publish": "✅ publish",
+        "trans_draft": "to drafts",
+        "trans_next": "next",
+        "trans_apply": "apply",
+        "lang_changed": "Language changed to English 🇺🇸",
+        "original_label": "Original",
+        "trans_label": "Trans",
+        "drafts_title": "<b>drafts</b>",
+        "drafts_empty": "no drafts",
+        "draft_view_title": "<b>name:</b> {0}",
+        "btn_edit": "edit",
+        "lang_updated": "language updated"
     }
 }
 
@@ -303,6 +321,7 @@ class DB:
         default_data = {
             "languages": [], 
             "admins": [MAIN_ADMIN_ID],
+            "drafts": [],
             "users": {} # user_id: "ru" or "en"
         }
         if not os.path.exists(self.filename):
@@ -312,6 +331,7 @@ class DB:
                 data = json.load(f)
                 if "languages" not in data: data["languages"] = []
                 if "admins" not in data: data["admins"] = [MAIN_ADMIN_ID]
+                if "drafts" not in data: data["drafts"] = []
                 if "users" not in data: data["users"] = {}
                 # Конвертация ключей пользователей в int (JSON хранит ключи как str)
                 data["users"] = {int(k): v for k, v in data["users"].items()}
@@ -327,9 +347,16 @@ class DB:
     def add_language(self, lang_data):
         self.data["languages"].append(lang_data)
         self.save()
-    
+
     def remove_language(self, lang_id):
         self.data["languages"] = [l for l in self.data["languages"] if l["id"] != lang_id]
+        self.save()
+
+    def update_language(self, lang_id, updates):
+        for l in self.data["languages"]:
+            if l["id"] == lang_id:
+                l.update(updates)
+                break
         self.save()
 
     def get_languages(self, lang_type=None):
@@ -343,6 +370,30 @@ class DB:
                 return l
         return None
 
+    def add_draft(self, draft_data):
+        self.data["drafts"].append(draft_data)
+        self.save()
+
+    def get_drafts(self):
+        return self.data["drafts"]
+
+    def get_draft_by_id(self, draft_id):
+        for d in self.data["drafts"]:
+            if d["id"] == draft_id:
+                return d
+        return None
+
+    def remove_draft(self, draft_id):
+        self.data["drafts"] = [d for d in self.data["drafts"] if d["id"] != draft_id]
+        self.save()
+
+    def update_draft(self, draft_id, updates):
+        for d in self.data["drafts"]:
+            if d["id"] == draft_id:
+                d.update(updates)
+                break
+        self.save()
+
     def get_admins(self):
         return self.data.get("admins", [MAIN_ADMIN_ID])
 
@@ -352,7 +403,7 @@ class DB:
             self.save()
             return True
         return False
-    
+
     def remove_admin(self, user_id):
         if user_id in self.data["admins"] and user_id != MAIN_ADMIN_ID:
             self.data["admins"].remove(user_id)
@@ -432,7 +483,7 @@ async def cmd_set_en(message: types.Message):
 @router.message(CommandStart())
 async def cmd_start(message: types.Message, command: CommandObject):
     user_id = message.from_user.id
-    
+
     # 1. Проверка на инвайт админа
     args = command.args
     if args and args.startswith("admin_"):
@@ -460,19 +511,19 @@ async def cmd_start(message: types.Message, command: CommandObject):
 async def show_lang_selection(message: types.Message):
     # Текст из конфига (смешанный RU/EN)
     text = BOT_STRINGS["ru"]["start_text"]
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text="🇷🇺 Русский", callback_data="set_bot_ru")
     kb.button(text="🇺🇸 English", callback_data="set_bot_en")
     kb.adjust(2)
-    
+
     await message.answer(text, reply_markup=kb.as_markup())
 
 @router.callback_query(F.data.startswith("set_bot_"))
 async def set_bot_language(call: types.CallbackQuery):
     lang_code = call.data.split("_")[2] # ru or en
     db.set_user_lang(call.from_user.id, lang_code)
-    
+
     # После выбора языка сразу редактируем сообщение на главное меню
     await show_catalog_main(call.message, is_edit=True, user_id=call.from_user.id)
 
@@ -482,14 +533,14 @@ async def set_bot_language(call: types.CallbackQuery):
 
 async def show_catalog_main(message: types.Message, is_edit=False, user_id=None):
     if not user_id: user_id = message.chat.id # fallback if msg object differs
-    
+
     text = TR("main_menu_text", user_id, EMOJI_CATALOG)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("btn_custom", user_id), callback_data="cat_custom")
     kb.button(text=TR("btn_global", user_id), callback_data="cat_global")
     kb.button(text=TR("btn_manual", user_id), url="https://t.me/huixplug")
-    
+
     # Кнопка для админов
     if user_id in db.get_admins():
         kb.button(text=TR("btn_manage", user_id), callback_data="admin_entry")
@@ -505,20 +556,20 @@ async def show_catalog_main(message: types.Message, is_edit=False, user_id=None)
 async def show_category(call: types.CallbackQuery):
     uid = call.from_user.id
     cat_type = call.data.split("_")[1]
-    
+
     emoji = EMOJI_CUSTOM if cat_type == "custom" else EMOJI_GLOBAL
     cat_name = TR(f"cat_type_{cat_type}", uid)
-    
+
     text = TR("cat_choice", uid, emoji, cat_name)
-    
+
     langs = db.get_languages(cat_type)
-    
+
     kb = InlineKeyboardBuilder()
     for lang in langs:
         kb.button(text=lang["name"], callback_data=f"view_lang_{lang['id']}")
     kb.button(text=TR("back", uid), callback_data="main_menu")
     kb.adjust(1)
-    
+
     await call.message.edit_text(text, reply_markup=kb.as_markup())
 
 @router.callback_query(F.data == "main_menu")
@@ -533,14 +584,14 @@ async def view_language(call: types.CallbackQuery):
     uid = call.from_user.id
     lang_id = call.data.split("_")[2]
     lang = db.get_language_by_id(lang_id)
-    
+
     if not lang:
         await call.answer("Error", show_alert=True)
         return
 
     total_keys = len(BASE_TEMPLATE)
     translated_keys = len(lang.get("content", {}))
-    
+
     text = (
         f"{EMOJI_GLOBAL} " + TR("lang_view_title", uid, lang['name']) + "\n"
         f"<blockquote>" + TR("lang_view_stats", uid, translated_keys, total_keys) + "\n"
@@ -548,17 +599,18 @@ async def view_language(call: types.CallbackQuery):
         + TR("lang_view_desc", uid, lang['description']) + "</blockquote>\n"
         + TR("lang_view_footer", uid)
     )
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("install", uid), callback_data=f"install_{lang_id}")
-    
-    # Кнопка удаления для админов
+
+    # Кнопки для админов
     if uid in db.get_admins():
+        kb.button(text=TR("btn_edit", uid), callback_data=f"edit_lang_{lang_id}")
         kb.button(text=TR("delete_admin", uid), callback_data=f"del_lang_{lang_id}")
 
     kb.button(text=TR("back", uid), callback_data=f"cat_{lang['type']}")
     kb.adjust(1)
-    
+
     await call.message.edit_text(text, reply_markup=kb.as_markup())
 
 @router.callback_query(F.data.startswith("del_lang_"))
@@ -566,10 +618,10 @@ async def admin_delete_language(call: types.CallbackQuery):
     uid = call.from_user.id
     if uid not in db.get_admins():
         return
-        
+
     lang_id = call.data.split("_")[2]
     db.remove_language(lang_id)
-    
+
     await call.answer(TR("lang_deleted", uid), show_alert=True)
     await show_catalog_main(call.message, is_edit=True, user_id=uid)
 
@@ -578,20 +630,44 @@ async def install_language(call: types.CallbackQuery):
     uid = call.from_user.id
     lang_id = call.data.split("_")[1]
     lang = db.get_language_by_id(lang_id)
-    
+
     if not lang:
         return
 
     content_str = json.dumps(lang["content"], ensure_ascii=False, indent=2)
     file_bytes = io.BytesIO(content_str.encode('utf-8'))
     file_input = BufferedInputFile(file_bytes.getvalue(), filename=f"{lang['name']}.txt")
-    
+
     await call.message.edit_text(TR("file_sent", uid, EMOJI_FILE))
     await call.message.answer_document(file_input)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("to_menu", uid), callback_data="main_menu")
     await call.message.answer(TR("to_menu", uid), reply_markup=kb.as_markup())
+
+@router.callback_query(F.data.startswith("edit_lang_"))
+async def edit_language(call: types.CallbackQuery, state: FSMContext):
+    uid = call.from_user.id
+    if uid not in db.get_admins():
+        await call.answer(TR("access_denied", uid), show_alert=True)
+        return
+
+    lang_id = call.data.split("_")[2]
+    lang = db.get_language_by_id(lang_id)
+    if not lang:
+        await call.answer("Error", show_alert=True)
+        return
+
+    await state.set_state(AdminStates.translating_dashboard)
+    await state.update_data(
+        cat=lang["type"],
+        name=lang["name"],
+        desc=lang["description"],
+        content=lang["content"],
+        edit_id=lang_id,
+        msg_id=call.message.message_id
+    )
+    await show_translation_dashboard(call, state)
 
 # ==========================================
 # АДМИН ПАНЕЛЬ
@@ -610,13 +686,14 @@ async def admin_panel_logic(message: types.Message, user_id, is_edit=False):
         return
 
     text = f"{EMOJI_ADMIN} " + TR("admin_panel_title", user_id)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("btn_manage_langs", user_id), callback_data="admin_langs")
-    kb.button(text=TR("btn_admins", user_id), callback_data="admin_users_menu")
+    if user_id == MAIN_ADMIN_ID:
+        kb.button(text=TR("btn_admins", user_id), callback_data="admin_users_menu")
     kb.button(text=TR("back", user_id), callback_data="main_menu")
     kb.adjust(1)
-    
+
     if is_edit:
         await message.edit_text(text, reply_markup=kb.as_markup())
     else:
@@ -630,13 +707,14 @@ async def admin_back_handler(call: types.CallbackQuery):
 async def admin_manage_langs(call: types.CallbackQuery):
     uid = call.from_user.id
     text = f"{EMOJI_MANAGE} " + TR("manage_langs_title", uid)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("btn_create_new", uid), callback_data="adm_create_new")
     kb.button(text=TR("btn_add_string", uid), callback_data="adm_add_string")
+    kb.button(text=TR("btn_drafts", uid), callback_data="adm_drafts")
     kb.button(text=TR("back", uid), callback_data="admin_back_main")
     kb.adjust(1)
-    
+
     await call.message.edit_text(text, reply_markup=kb.as_markup())
 
 # ------------------------------------
@@ -647,15 +725,17 @@ async def admin_manage_langs(call: types.CallbackQuery):
 async def admin_users_menu(call: types.CallbackQuery):
     uid = call.from_user.id
     admins = db.get_admins()
-    
+    if uid == MAIN_ADMIN_ID:
+        admins = [a for a in admins if a != MAIN_ADMIN_ID]
+
     text = TR("admins_list_title", uid, len(admins))
-    
+
     kb = InlineKeyboardBuilder()
-    
+
     # Только главный админ может создавать приглашения
     if uid == MAIN_ADMIN_ID:
         kb.button(text=TR("btn_gen_invite", uid), callback_data="adm_gen_invite")
-    
+
     # Список админов 
     for aid in admins:
         if aid == MAIN_ADMIN_ID:
@@ -668,12 +748,12 @@ async def admin_users_menu(call: types.CallbackQuery):
             # Открываем меню управления админом
             btn_text = f"👤 {aid}"
             callback = f"adm_view_{aid}"
-        
+
         kb.button(text=btn_text, callback_data=callback)
 
     kb.button(text=TR("back", uid), callback_data="admin_back_main")
     kb.adjust(1)
-    
+
     await call.message.edit_text(text, reply_markup=kb.as_markup())
 
 # ПРОСМОТР АДМИНА И УДАЛЕНИЕ
@@ -681,21 +761,21 @@ async def admin_users_menu(call: types.CallbackQuery):
 async def admin_view_specific_user(call: types.CallbackQuery):
     uid = call.from_user.id
     target_id = call.data.split("_")[2]
-    
+
     text = TR("admin_manage_user_title", uid, target_id)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("btn_delete_admin_user", uid), callback_data=f"adm_remove_{target_id}")
     kb.button(text=TR("back", uid), callback_data="admin_users_menu")
     kb.adjust(1)
-    
+
     await call.message.edit_text(text, reply_markup=kb.as_markup())
 
 @router.callback_query(F.data.startswith("adm_remove_"))
 async def remove_admin_handler(call: types.CallbackQuery):
     uid = call.from_user.id
     target_id = int(call.data.split("_")[2])
-    
+
     # Проверка безопасности: только главный может удалять
     if uid != MAIN_ADMIN_ID:
         await call.answer(TR("access_denied", uid), show_alert=True)
@@ -710,7 +790,7 @@ async def remove_admin_handler(call: types.CallbackQuery):
 @router.callback_query(F.data == "adm_gen_invite")
 async def generate_admin_invite(call: types.CallbackQuery):
     uid = call.from_user.id
-    
+
     # Еще одна проверка
     if uid != MAIN_ADMIN_ID:
         await call.answer(TR("access_denied", uid), show_alert=True)
@@ -718,15 +798,15 @@ async def generate_admin_invite(call: types.CallbackQuery):
 
     token = str(uuid.uuid4())[:10]
     INVITE_TOKENS[token] = True
-    
+
     bot_info = await bot.get_me()
     link = f"https://t.me/{bot_info.username}?start=admin_{token}"
-    
+
     text = TR("invite_text", uid, link)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("back", uid), callback_data="admin_users_menu")
-    
+
     await call.message.edit_text(text, reply_markup=kb.as_markup())
 
 # --- ДОБАВЛЕНИЕ СТРОКИ ---
@@ -753,12 +833,12 @@ async def process_string_value(message: types.Message, state: FSMContext):
     new_key = data.get("new_key")
     value = message.text.strip()
     await message.delete()
-    
+
     BASE_TEMPLATE[new_key] = value
-    
+
     if new_key not in TRANSLATION_CATEGORIES["general"]["keys"]:
         TRANSLATION_CATEGORIES["general"]["keys"].append(new_key)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text="save", callback_data="save_new_string")
     await bot.edit_message_text(f"Added:\n{new_key} = {value}", chat_id=message.chat.id, message_id=msg_id, reply_markup=kb.as_markup())
@@ -778,7 +858,7 @@ async def wizard_step1_cat(call: types.CallbackQuery, state: FSMContext):
     kb.button(text=TR("cat_type_custom", uid), callback_data="w_cat_custom")
     kb.button(text=TR("cat_type_global", uid), callback_data="w_cat_global")
     kb.adjust(2)
-    
+
     await call.message.edit_text(text, reply_markup=kb.as_markup())
     await state.set_state(AdminStates.creating_cat)
     await state.update_data(msg_id=call.message.message_id)
@@ -788,7 +868,7 @@ async def wizard_step2_name_ask(call: types.CallbackQuery, state: FSMContext):
     uid = call.from_user.id
     cat = call.data.split("_")[2]
     await state.update_data(cat=cat)
-    
+
     text = f"{EMOJI_EDIT} " + TR("wiz_step2", uid)
     await call.message.edit_text(text)
     await state.set_state(AdminStates.creating_name)
@@ -800,7 +880,7 @@ async def wizard_step2_name_proc(message: types.Message, state: FSMContext):
     name = message.text
     await message.delete()
     await state.update_data(name=name)
-    
+
     text = f"{EMOJI_DESC} " + TR("wiz_step3", message.from_user.id)
     await bot.edit_message_text(chat_id=message.chat.id, message_id=msg_id, text=text)
     await state.set_state(AdminStates.creating_desc)
@@ -813,13 +893,13 @@ async def wizard_step3_desc_proc(message: types.Message, state: FSMContext):
     desc = message.text
     await message.delete()
     await state.update_data(desc=desc)
-    
+
     text = f"{EMOJI_THINK} " + TR("wiz_step4", uid)
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("wiz_btn_scratch", uid), callback_data="method_scratch")
     kb.button(text=TR("wiz_btn_upload", uid), callback_data="method_upload")
     kb.adjust(1)
-    
+
     await bot.edit_message_text(chat_id=message.chat.id, message_id=msg_id, text=text, reply_markup=kb.as_markup())
     await state.set_state(AdminStates.creating_method)
 
@@ -833,11 +913,11 @@ async def wizard_upload_ask(call: types.CallbackQuery, state: FSMContext):
 async def wizard_upload_proc(message: types.Message, state: FSMContext):
     data = await state.get_data()
     msg_id = data.get("msg_id")
-    
+
     file_id = message.document.file_id
     file_info = await bot.get_file(file_id)
     downloaded_file = await bot.download_file(file_info.file_path)
-    
+
     try:
         content = json.load(downloaded_file)
     except Exception:
@@ -846,7 +926,7 @@ async def wizard_upload_proc(message: types.Message, state: FSMContext):
         return
 
     await message.delete()
-    
+
     new_lang = {
         "id": str(uuid.uuid4())[:8],
         "name": data["name"],
@@ -857,10 +937,10 @@ async def wizard_upload_proc(message: types.Message, state: FSMContext):
         "author_id": message.from_user.id
     }
     db.add_language(new_lang)
-    
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("to_menu", message.from_user.id), callback_data="admin_langs")
-    
+
     await bot.edit_message_text(
         text=f"{EMOJI_DONE} " + TR("wiz_done", message.from_user.id),
         chat_id=message.chat.id,
@@ -882,25 +962,26 @@ async def show_translation_dashboard(call_or_message, state: FSMContext):
         uid = call_or_message.from_user.id
     else:
         uid = call_or_message.chat.id # Fallback
-        
+
     content = data.get("content", {})
     name = data.get("name")
-    
+
     total_completed = len(content)
     total_all = len(BASE_TEMPLATE)
-    
+
     text = f"{EMOJI_TRANSLATE} " + TR("trans_panel", uid, name, total_completed, total_all)
-    
+
     kb = InlineKeyboardBuilder()
     for cat_key, cat_val in TRANSLATION_CATEGORIES.items():
         keys_in_cat = cat_val["keys"]
         count_cat_all = len(keys_in_cat)
         count_cat_done = sum(1 for k in keys_in_cat if k in content)
         kb.button(text=f"{cat_val['name']} {count_cat_done} • {count_cat_all}", callback_data=f"trans_cat_{cat_key}")
-        
+
     kb.button(text=TR("trans_publish", uid), callback_data="trans_publish")
+    kb.button(text=TR("trans_draft", uid), callback_data="trans_draft")
     kb.adjust(1)
-    
+
     msg_id = data.get("msg_id")
     if isinstance(call_or_message, types.CallbackQuery):
         await call_or_message.message.edit_text(text, reply_markup=kb.as_markup())
@@ -921,7 +1002,7 @@ async def show_next_key_translation(call_or_obj, state: FSMContext):
     keys = data.get("current_cat_keys")
     index = data.get("current_key_index")
     content = data.get("content", {})
-    
+
     # Определяем UID
     if isinstance(call_or_obj, types.CallbackQuery):
         uid = call_or_obj.from_user.id
@@ -929,7 +1010,7 @@ async def show_next_key_translation(call_or_obj, state: FSMContext):
     else:
         uid = call_or_obj.from_user.id
         msg_obj = call_or_obj
-        
+
     if index >= len(keys):
         await show_translation_dashboard(call_or_obj, state)
         return
@@ -937,22 +1018,22 @@ async def show_next_key_translation(call_or_obj, state: FSMContext):
     current_key = keys[index]
     original_text = BASE_TEMPLATE.get(current_key, "???")
     current_translation = content.get(current_key, "---")
-    
+
     text = (f"<b>{index + 1} / {len(keys)}</b>\n"
-            f"Original:\n<blockquote>{original_text}</blockquote>\n"
-            f"Trans:\n<blockquote>{current_translation}</blockquote>")
-    
+            f"{TR('original_label', uid)}:\n<blockquote>{original_text}</blockquote>\n"
+            f"{TR('trans_label', uid)}:\n<blockquote>{current_translation}</blockquote>")
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("trans_next", uid), callback_data="trans_next")
     kb.button(text=TR("trans_apply", uid), callback_data="trans_apply_cat")
     kb.adjust(2)
-    
+
     msg_id = data.get("msg_id")
     if isinstance(call_or_obj, types.CallbackQuery):
         await msg_obj.edit_text(text, reply_markup=kb.as_markup())
     else:
         await bot.edit_message_text(text=text, chat_id=msg_obj.chat.id, message_id=msg_id, reply_markup=kb.as_markup())
-        
+
     await state.set_state(AdminStates.translating_input)
 
 @router.message(AdminStates.translating_input)
@@ -962,10 +1043,10 @@ async def process_translation_input(message: types.Message, state: FSMContext):
     index = data.get("current_key_index")
     current_key = keys[index]
     content = data.get("content", {})
-    
+
     content[current_key] = message.text
     await message.delete()
-    
+
     await state.update_data(content=content)
     await show_next_key_translation(message, state)
 
@@ -983,26 +1064,150 @@ async def translation_apply_category(call: types.CallbackQuery, state: FSMContex
 @router.callback_query(F.data == "trans_publish")
 async def finish_translation_publish(call: types.CallbackQuery, state: FSMContext):
     data = await state.get_data()
-    
-    new_lang = {
-        "id": str(uuid.uuid4())[:8],
-        "name": data["name"],
-        "description": data["desc"],
-        "type": data["cat"],
+
+    updates = {
         "content": data["content"],
-        "date": datetime.now().strftime("%d.%m.%y"),
-        "author_id": call.from_user.id
+        "date": datetime.now().strftime("%d.%m.%y")
     }
-    db.add_language(new_lang)
-    
+
+    if "edit_id" in data:
+        db.update_language(data["edit_id"], updates)
+        if "draft_id" in data:
+            db.remove_draft(data["draft_id"])
+        await call.answer(TR("lang_updated", call.from_user.id), show_alert=True)
+    else:
+        new_lang = {
+            "id": str(uuid.uuid4())[:8],
+            "name": data["name"],
+            "description": data["desc"],
+            "type": data["cat"],
+            "content": data["content"],
+            "date": updates["date"],
+            "author_id": call.from_user.id
+        }
+        db.add_language(new_lang)
+        if "draft_id" in data:
+            db.remove_draft(data["draft_id"])
+        await call.answer(TR("wiz_done", call.from_user.id), show_alert=True)
+
     kb = InlineKeyboardBuilder()
     kb.button(text=TR("to_menu", call.from_user.id), callback_data="admin_langs")
-    
+
     await call.message.edit_text(
-        text=f"{EMOJI_DONE} {TR('wiz_done', call.from_user.id)}",
+        text=f"{EMOJI_DONE} {TR('wiz_done' if 'edit_id' not in data else 'lang_updated', call.from_user.id)}",
         reply_markup=kb.as_markup()
     )
     await state.clear()
+
+@router.callback_query(F.data == "trans_draft")
+async def handle_trans_draft(call: types.CallbackQuery, state: FSMContext):
+    uid = call.from_user.id
+    data = await state.get_data()
+    updates = {
+        "content": data["content"],
+        "date": datetime.now().strftime("%d.%m.%y")
+    }
+    if "draft_id" in data:
+        db.update_draft(data["draft_id"], updates)
+        await call.answer("Сохранено в черновик", show_alert=True)
+    else:
+        new_draft = {
+            "id": str(uuid.uuid4())[:8],
+            "name": data["name"],
+            "description": data["desc"],
+            "type": data["cat"],
+            "content": data["content"],
+            "date": updates["date"],
+            "author_id": uid
+        }
+        db.add_draft(new_draft)
+        await call.answer("Добавлено в черновики", show_alert=True)
+    await state.clear()
+    await admin_manage_langs(call)
+
+@router.callback_query(F.data == "adm_drafts")
+async def show_drafts(call: types.CallbackQuery):
+    uid = call.from_user.id
+    drafts = db.get_drafts()
+    if not drafts:
+        text = TR("drafts_empty", uid)
+    else:
+        text = TR("drafts_title", uid)
+
+    kb = InlineKeyboardBuilder()
+    for draft in drafts:
+        kb.button(text=draft["name"], callback_data=f"view_draft_{draft['id']}")
+    kb.button(text=TR("back", uid), callback_data="admin_langs")
+    kb.adjust(1)
+
+    await call.message.edit_text(text, reply_markup=kb.as_markup())
+
+@router.callback_query(F.data.startswith("view_draft_"))
+async def view_draft(call: types.CallbackQuery):
+    uid = call.from_user.id
+    draft_id = call.data.split("_")[2]
+    draft = db.get_draft_by_id(draft_id)
+    if not draft:
+        await call.answer("Error")
+        return
+
+    total_keys = len(BASE_TEMPLATE)
+    translated_keys = len(draft.get("content", {}))
+
+    text = (
+        f"{EMOJI_GLOBAL} " + TR("draft_view_title", uid, draft['name']) + "\n"
+        f"<blockquote>" + TR("lang_view_stats", uid, translated_keys, total_keys) + "\n"
+        + TR("lang_view_date", uid, draft.get('date', '...')) + "\n"
+        + TR("lang_view_desc", uid, draft['description']) + "</blockquote>\n"
+    )
+
+    kb = InlineKeyboardBuilder()
+    kb.button(text=TR("trans_publish", uid), callback_data=f"draft_publish_{draft_id}")
+    kb.button(text=TR("btn_edit", uid), callback_data=f"draft_edit_{draft_id}")
+    kb.button(text=TR("delete_admin", uid), callback_data=f"draft_delete_{draft_id}")
+    kb.button(text=TR("back", uid), callback_data="adm_drafts")
+    kb.adjust(1)
+
+    await call.message.edit_text(text, reply_markup=kb.as_markup())
+
+@router.callback_query(F.data.startswith("draft_publish_"))
+async def draft_publish(call: types.CallbackQuery):
+    uid = call.from_user.id
+    draft_id = call.data.split("_")[2]
+    draft = db.get_draft_by_id(draft_id)
+    if draft:
+        db.add_language(draft)
+        db.remove_draft(draft_id)
+        await call.answer(TR("wiz_done", uid), show_alert=True)
+        await admin_manage_langs(call)
+    else:
+        await call.answer("Error")
+
+@router.callback_query(F.data.startswith("draft_delete_"))
+async def draft_delete(call: types.CallbackQuery):
+    uid = call.from_user.id
+    draft_id = call.data.split("_")[2]
+    db.remove_draft(draft_id)
+    await call.answer(TR("lang_deleted", uid), show_alert=True)
+    await show_drafts(call)
+
+@router.callback_query(F.data.startswith("draft_edit_"))
+async def draft_edit(call: types.CallbackQuery, state: FSMContext):
+    uid = call.from_user.id
+    draft_id = call.data.split("_")[2]
+    draft = db.get_draft_by_id(draft_id)
+    if not draft:
+        return
+    await state.set_state(AdminStates.translating_dashboard)
+    await state.update_data(
+        cat=draft["type"],
+        name=draft["name"],
+        desc=draft["description"],
+        content=draft["content"],
+        draft_id=draft_id,
+        msg_id=call.message.message_id
+    )
+    await show_translation_dashboard(call, state)
 
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)
