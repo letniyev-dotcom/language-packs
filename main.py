@@ -408,7 +408,6 @@ class DB:
         try:
             with open(self.filename, 'w', encoding='utf-8') as f:
                 # При сохранении ключи словаря users станут строками, это норм для JSON
-                # Убрали indent=2 для ускорения сохранения
                 json.dump(self.data, f, ensure_ascii=False)
         except Exception as e:
             logger.error(f"Error saving DB: {e}")
@@ -1069,16 +1068,21 @@ async def generate_admin_invite(call: types.CallbackQuery):
 # УПРАВЛЕНИЕ КАТЕГОРИЯМИ
 # ------------------------------------
 
-async def adm_categories_menu(call_or_message: types.CallbackQuery | types.Message, state: FSMContext = None):
+async def adm_categories_menu(call_or_message: types.CallbackQuery | types.Message, state: FSMContext = None, edit_msg_id: Optional[int] = None):
     if isinstance(call_or_message, types.CallbackQuery):
         uid = call_or_message.from_user.id
         msg = call_or_message.message
+        chat_id = msg.chat.id
+        message_id = msg.message_id
     else:
         uid = call_or_message.from_user.id
         msg = call_or_message
+        chat_id = msg.chat.id
+        message_id = None  # Will use edit_msg_id if provided
 
     if uid != MAIN_ADMIN_ID:
-        await call_or_message.answer(TR("access_denied", uid), show_alert=True)
+        if isinstance(call_or_message, types.CallbackQuery):
+            await call_or_message.answer(TR("access_denied", uid), show_alert=True)
         return
 
     text = f"{EMOJI_CATEGORY} {TR('manage_categories_title', uid)}"
@@ -1090,10 +1094,14 @@ async def adm_categories_menu(call_or_message: types.CallbackQuery | types.Messa
     kb.button(text=f"⬅️ {TR('back', uid)}", callback_data="admin_back_main")
     kb.adjust(1)
 
-    if isinstance(call_or_message, types.CallbackQuery):
-        await msg.edit_text(text, reply_markup=kb.as_markup())
+    reply_markup = kb.as_markup()
+
+    if edit_msg_id:
+        await bot.edit_message_text(text, chat_id=chat_id, message_id=edit_msg_id, reply_markup=reply_markup)
+    elif message_id:
+        await bot.edit_message_text(text, chat_id=chat_id, message_id=message_id, reply_markup=reply_markup)
     else:
-        await msg.answer(text, reply_markup=kb.as_markup())
+        await msg.answer(text, reply_markup=reply_markup)
 
 @router.callback_query(F.data == "adm_categories")
 async def adm_categories_handler(call: types.CallbackQuery, state: FSMContext):
@@ -1158,7 +1166,7 @@ async def edit_category_process(message: types.Message, state: FSMContext):
     TRANSLATION_CATEGORIES = db.get_translation_categories()
 
     await state.clear()
-    await adm_categories_menu(message)
+    await adm_categories_menu(message, edit_msg_id=msg_id)
 
 @router.callback_query(F.data == "add_new_cat")
 async def add_category_start(call: types.CallbackQuery, state: FSMContext):
@@ -1182,7 +1190,7 @@ async def add_category_process(message: types.Message, state: FSMContext):
         await bot.edit_message_text(TR("cat_name_empty", uid), chat_id=message.chat.id, message_id=msg_id)
         return
 
-    cat_key = name.lower().replace(" ", "_")
+    cat_key = name.lower().replace(" ", "_")  # Simple key generation
     if not cat_key:
         await bot.edit_message_text(TR("cat_key_invalid", uid), chat_id=message.chat.id, message_id=msg_id)
         return
@@ -1190,14 +1198,13 @@ async def add_category_process(message: types.Message, state: FSMContext):
     added = db.add_category(cat_key, name)
     if not added:
         await bot.edit_message_text(TR("cat_exists", uid), chat_id=message.chat.id, message_id=msg_id)
-        await state.clear()
         return
 
     global TRANSLATION_CATEGORIES
     TRANSLATION_CATEGORIES = db.get_translation_categories()
 
     await state.clear()
-    await adm_categories_menu(message)
+    await adm_categories_menu(message, edit_msg_id=msg_id)
 
 # ------------------------------------
 # УПРАВЛЕНИЕ СТРОКАМИ
